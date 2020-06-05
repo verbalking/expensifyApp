@@ -12,7 +12,8 @@ export default (expenses, {text, sortBy, startDate, endDate})=>{
         return startDateMatch && endDateMatch && textMatch;
         //filter only returns the objects that satisfy true in the return()
         
-    }).sort((a, b)=>{
+    }
+    ).sort((a, b)=>{
         if(sortBy==='date'){
             return a.createdAt>b.createdAt ? 1:-1;
         }else if(sortBy==='amount'){

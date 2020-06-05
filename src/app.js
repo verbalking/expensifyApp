@@ -12,19 +12,21 @@ import {addExpense} from './actions/expenses';
 import {setTextFilter} from './actions/filters';
 import getVisibleExpenses from './selectors/expenses'
 import 'react-dates/lib/css/_datepicker.css';
+import getExpensesTotal from './selectors/expenses-total'
 
 
 const store = configureStore();
 
-console.log('spopos');
-// store.dispatch(addExpense({description: 'Water Bill', note:'Sou7lifoux', amount: 3, createdAt:1995}));
-// store.dispatch(addExpense({description: 'Gas Bill', note:'Sou7lifoux', amount: 2, createdAt:1990}));
-// store.dispatch(addExpense({description: 'Mol lben', note:'Sou7lifoux', amount: 1, createdAt:2004}));
+store.dispatch(addExpense({description: 'Water Bill', note:'Sou7lifoux', amount: 300, createdAt:1995}));
+store.dispatch(addExpense({description: 'Gas Bill', note:'Sou7lifoux', amount: 100, createdAt:1990}));
+store.dispatch(addExpense({description: 'Mol lben', note:'Sou7lifoux', amount: 1000, createdAt:2004}));
 
 
-// const state=store.getState();
-// const visibleExpenses=getVisibleExpenses(state.expenses, state.filters);
-// console.log(visibleExpenses);
+const state=store.getState();
+const visibleExpenses=getVisibleExpenses(state.expenses, state.filters);
+const total = getExpensesTotal(state.expenses);
+console.log(total);
+
 
  const jsx=(
     <Provider store={store}>
