@@ -10,13 +10,3 @@ exports[`Should render ExpenseSummary correctly 1`] = `
   </h3>
 </div>
 `;
-
-exports[`Should render ExpenseSummary correctly 2`] = `
-<div>
-  <h3>
-     Viewing 
-    3
-     expenses totalling 
-  </h3>
-</div>
-`;

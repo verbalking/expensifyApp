@@ -10,12 +10,12 @@ test ('Should render ExpenseSummary correctly', ()=>{
   const wrapper = shallow (<ExpensesSummary expenses={expenses} total = {total} />);
   expect(wrapper).toMatchSnapshot();
 
-})
+});
 
 
-test ('Should render ExpenseSummary correctly', ()=>{
+// test ('Should render ExpenseSummary correctly', ()=>{
   
-  const wrapper = shallow (<ExpensesSummary expenses={expenses}/>);
-  expect(wrapper).toMatchSnapshot();
+//   const wrapper = shallow (<ExpensesSummary expenses={expenses}/>);
+//   expect(wrapper).toMatchSnapshot();
 
-})
+// })

@@ -4,7 +4,7 @@ import getExpensesTotal from '../selectors/expenses-total';
 
 import {connect} from 'react-redux';
 
-const ExpensesSummary = ({expenses, total}) =>{
+export const ExpensesSummary = ({expenses, total}) =>{
 
     return(
       <div>

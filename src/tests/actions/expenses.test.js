@@ -1,5 +1,9 @@
-import {addExpense, editExpense, removeExpense} from '../../actions/expenses';
+import {addExpense, editExpense, removeExpense, startAddExpense} from '../../actions/expenses';
+import expenses from '../fixtures/expenses';
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
 
+const createMockStore = configureMockStore([thunk]);
 
 test('Should setup remove expense action object', ()=>{
   const action = removeExpense({id: '123abc'});
@@ -22,34 +26,42 @@ test ('Should setupd Edit expense', ()=>{
 
 
 test ('Should setup add expense values', ()=>{
-  const expenseData={
-    description: 'spopo',
-    note: 'spospo',
-    amount: 123,
-    createdAt: 1000
-  }
 
-  const action=addExpense(expenseData);
+
+  const action=addExpense(expenses[2]);
   expect(action).toEqual({
     type:'ADD_EXPENSE',
-    expense: {...expenseData, id: expect.any(String)}
+    expense: expenses[2]
  
   });
 
 
 });
 
-test ('Should setup add expense default', ()=>{
-  const defaultExpense={
-    description:'', 
-    note:'', 
-    amount:0, 
-    createdAt:0
-  };
-  const action=addExpense();
-  expect(action).toEqual({
-    type:'ADD_EXPENSE',
-    expense: {...defaultExpense, id: expect.any(String)}
-  });
+test ('should add expense to store and database', (done)=>{
+  const store = createMockStore({});
+  const expenseData = {
+    description: 'MouQQQse',
+    amount: 3000,
+    note: 'this is a note',
+    createdAt: 1000
+  }
+  store.dispatch(startAddExpense(expenseData)).then(()=>{
+    done();
+  }); 
 
 });
+
+// test ('Should setup add expense default', ()=>{
+//   const defaultExpense={
+//     description:'', 
+//     note:'', 
+//     amount:0, 
+//     createdAt:0
+//   };
+//   const action=addExpense();
+//   expect(action).toEqual({
+//     type:'ADD_EXPENSE',
+//     expense: {...defaultExpense, id: expect.any(String)}
+//   });
+// });
