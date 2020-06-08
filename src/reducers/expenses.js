@@ -1,3 +1,5 @@
+import expenses from "../tests/fixtures/expenses";
+
 const expensesReducerDState=[];
 
 
@@ -21,7 +23,9 @@ export default (state = expensesReducerDState, action) =>{
                     return expense;
                 }
             })
-            
+        
+        case 'SET_EXPENSES':
+            return action.expenses;
         default:
             return state;
     }
