@@ -70,4 +70,15 @@ export const startSetExpenses= ()=>{
     };
 }; 
 
+export const startEditExpense = (id,updates) => {
+    return (dispatch)=>{
+        const path = 'expenses/';
+        const editedExpense = path.concat(id);
+        return database.ref(editedExpense).update({
+            ...updates
+        }).then(()=>{
+            dispatch(editExpense(id,updates));
+        });
+    };
+};
 
