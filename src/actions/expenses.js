@@ -31,16 +31,27 @@ export const editExpense = (id,updates)=>({
     updates
 });
 
-export const removeExpense=({id}={})=>({
+export const removeExpense=(id={})=>({
     type: 'REMOVE_EXPENSE',
     id
 });
+
+
 
 export const setExpenses = (expenses)=>({
     type: 'SET_EXPENSES',
     expenses
 });
 
+
+export const startRemoveExpense = ({id})=>{
+    return (dispatch)=>{
+        const path = 'expenses/';
+        const removedExpense=path.concat(id);
+        database.ref(removedExpense).remove();
+        dispatch(removeExpense(id));
+    };
+};
 
 
 export const startSetExpenses= ()=>{
