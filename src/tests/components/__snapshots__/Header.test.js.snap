@@ -18,5 +18,10 @@ exports[`shuld render Header 1`] = `
   >
     Create page
   </[object Object]>
+  <button
+    onClick={[Function]}
+  >
+    Logout
+  </button>
 </header>
 `;

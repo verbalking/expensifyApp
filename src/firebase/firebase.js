@@ -9,14 +9,17 @@ const config = {
   messagingSenderId:process.env.FIREBASE_MESSAGING_SENDER_ID,
   appId:"1:735012570566:web:5545a13846102457375ec7",
   measurementId:"G-3RP04JC1SR"
+
 };
 
 firebase.initializeApp(config);
 const database=firebase.database();
+console.log(config.apiKey);
+console.log(config.authDomain);
 
+var provider = new firebase.auth.GoogleAuthProvider();
 
-
-export {firebase, database as default}; 
+export {firebase, provider ,database as default}; 
 
 
 

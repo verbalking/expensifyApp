@@ -1,9 +1,9 @@
 import {shallow} from 'enzyme'
 import React from 'react';
-import Header from '../../components/Header';
+import {Header} from '../../components/Header';
 
 test ('shuld render Header', ()=>{
-  const wrapper = shallow(<Header/>);
+  const wrapper = shallow(<Header startLogout={()=>{}}/>);
   expect(wrapper).toMatchSnapshot();
   // const renderer = new ReactShallowRenderer();
   // renderer.render(<Header/>);
