@@ -1,0 +1,28 @@
+.button{
+  background: #10A5F5;
+  border: none;
+  padding: $s-size;
+  font-weight: 100;
+  text-decoration: none;
+  display: inline-block;
+  padding: $s-size;
+  color: white;
+  font-size: $font-size-l;
+  
+}
+
+.button--login{
+  padding: $m-size;
+  color: white;
+  font-size: $font-size-l;
+}
+
+.button--link{
+  background: none;
+  font-weight: 10;
+}
+
+.button--secondary{
+  background: #888888;
+  font-weight: 10;
+}

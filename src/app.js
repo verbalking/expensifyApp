@@ -14,6 +14,7 @@ import getVisibleExpenses from './selectors/expenses'
 import 'react-dates/lib/css/_datepicker.css';
 import getExpensesTotal from './selectors/expenses-total';
 import { firebase } from './firebase/firebase';
+import LoadingPage from './components/LoadingPage'
 
 
 const store = configureStore();
@@ -35,7 +36,7 @@ const renderApp = () => {
 
 const appRoot = document.getElementById('app');
 
-ReactDOM.render(<p>Loading...</p>, appRoot);
+ReactDOM.render(<LoadingPage/>, appRoot);
 
 
 firebase.auth().onAuthStateChanged((user)=>{
